@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BABY vs THE CRUSHER</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070b1a;--ink:#eaf2ff;--cy:#35e0ff;--mg:#ff4dd8;--am:#ffc93c;--gr:#19e3a5;--rd:#ff4d6d;--c:var(--rd);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0}
+body{font-family:'Nunito','Trebuchet MS',system-ui,sans-serif;color:var(--ink);background:radial-gradient(ellipse at 50% -10%,#1c2c70 0,var(--bg) 62%);overflow:hidden;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+#bg{position:fixed;inset:0;background-image:linear-gradient(rgba(53,224,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(53,224,255,.06) 1px,transparent 1px);background-size:34px 34px;animation:grid 12s linear infinite;pointer-events:none}
+#bg::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(transparent 0 3px,rgba(0,0,0,.14) 3px 4px);pointer-events:none}
+@keyframes grid{to{background-position:0 34px}}
+#app{position:relative;height:100%;display:flex;flex-direction:column;max-width:520px;margin:0 auto;padding:8px 12px 12px;gap:10px}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.chip{font-family:'Orbitron',sans-serif;font-weight:800;font-size:11px;letter-spacing:1.5px;padding:7px 10px;border-radius:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(8px)}
+.chip b{color:var(--c)}
+#ringw{position:relative;width:78px;height:78px;flex:none}
+#ringw svg{transform:rotate(-90deg)}
+#rn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-weight:800;font-size:22px}
+.low #rn{color:var(--rd);animation:pulse .5s infinite}
+@keyframes pulse{50%{transform:scale(1.15)}}
+#scene{position:relative;height:170px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.18);background:linear-gradient(#10183a,#0a0f26);box-shadow:inset 0 0 40px rgba(0,0,0,.5),0 0 30px color-mix(in srgb,var(--c) 30%,transparent);flex:none}
+.press{position:absolute;left:8%;right:8%;top:0;height:40px;background:linear-gradient(#6b7490,#3a4260);border-bottom:6px solid #222;border-radius:0 0 10px 10px;transition:transform .2s linear}
+.press::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:6px;background:repeating-linear-gradient(135deg,#ffc93c 0 10px,#111 10px 20px)}
+.piston{position:absolute;left:48%;width:10px;top:0;height:20px;background:#8a94b4}
+.floor{position:absolute;left:0;right:0;bottom:0;height:14px;background:linear-gradient(#2a335a,#161c3a)}
+.him,.her{position:absolute;bottom:14px;font-size:46px;transition:.3s}
+.him{left:50%;margin-left:-23px}.her{right:12%}
+.fc{position:absolute;bottom:62px;left:50%;margin-left:-14px;font-size:24px}
+.gas{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(rgba(25,227,165,.15),rgba(25,227,165,.55));transition:height .2s linear;border-top:2px solid rgba(25,227,165,.8)}
+.flask{position:absolute;font-size:26px;opacity:.85;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.pips{position:absolute;top:8px;left:0;right:0;display:flex;gap:6px;justify-content:center}
+.pip{width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;font-size:12px}
+.pip.on{background:var(--c);border-color:#fff;box-shadow:0 0 14px var(--c)}
+.door{position:absolute;left:50%;top:20px;width:110px;margin-left:-55px;height:140px;border-radius:55px 55px 0 0;background:linear-gradient(#27315e,#141a3a);border:3px solid rgba(255,255,255,.3);transition:.4s}
+.door.open{box-shadow:0 0 40px var(--am);background:linear-gradient(var(--am),#ff9e3c)}
+.door span{position:absolute;left:50%;margin-left:-11px;width:22px;height:22px;border-radius:50%;border:2px solid #fff6;background:#0b0f24}
+.door span.on{background:var(--am);box-shadow:0 0 14px var(--am)}
+#card{flex:1;min-height:0;overflow-y:auto;border-radius:20px;padding:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(12px);display:flex;flex-direction:column;gap:10px;animation:rise .4s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+.qhead{display:flex;justify-content:space-between;align-items:center;font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:1.5px}
+.subj{padding:5px 10px;border-radius:99px;background:var(--sc);color:#07101f;font-weight:800}
+.qtext{font-size:17px;line-height:1.45;font-weight:800}
+.lcd{font-family:'Orbitron',sans-serif;font-size:30px;font-weight:800;text-align:right;padding:8px 14px;border-radius:12px;background:#02060f;color:var(--cy);border:1px solid rgba(53,224,255,.4);box-shadow:inset 0 0 18px rgba(53,224,255,.2);min-height:54px}
+.lcd small{font-size:13px;opacity:.7;margin-left:8px}
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+button{font-family:inherit;font-weight:800;font-size:19px;color:var(--ink);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:12px;cursor:pointer;touch-action:manipulation;transition:.1s}
+button:active{transform:scale(.95);background:rgba(255,255,255,.22)}
+button.go{background:linear-gradient(135deg,var(--c),#ff9e3c);color:#07101f;border:0;box-shadow:0 0 22px color-mix(in srgb,var(--c) 60%,transparent);font-family:'Orbitron',sans-serif}
+button.wide{grid-column:span 2}
+.opt{text-align:left;font-size:16px;line-height:1.35}
+.actions{display:flex;gap:8px}
+.actions button{flex:1;font-size:14px;padding:10px}
+#msg{min-height:22px;font-size:14px;font-weight:800;color:var(--am);text-align:center}
+input{width:100%;font-family:'Orbitron',sans-serif;font-size:22px;font-weight:800;text-align:center;padding:14px;border-radius:14px;border:1px solid rgba(53,224,255,.5);background:#02060f;color:var(--cy);outline:none;text-transform:uppercase;user-select:text;-webkit-user-select:text}
+#ov{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(4,7,18,.86);backdrop-filter:blur(8px)}
+#ov.on{display:flex}
+.box{width:min(94vw,440px);max-height:92vh;overflow-y:auto;border-radius:24px;padding:22px 18px;text-align:center;background:linear-gradient(160deg,rgba(40,52,110,.9),rgba(14,18,44,.95));border:1px solid rgba(255,255,255,.22);box-shadow:0 0 50px color-mix(in srgb,var(--c) 40%,transparent);animation:rise .4s;display:flex;flex-direction:column;gap:12px;align-items:center}
+.logo{font-family:'Orbitron',sans-serif;font-weight:800;font-size:36px;line-height:1.05;background:linear-gradient(90deg,var(--cy),var(--mg),var(--am));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 14px rgba(255,77,216,.6))}
+.big{font-size:64px;animation:bob 2.4s ease-in-out infinite}
+.t{font-size:16px;line-height:1.5;text-align:left;width:100%}
+.t b{color:var(--c)}
+.sub{font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:3px;color:var(--cy)}
+.vig{position:fixed;inset:0;pointer-events:none;z-index:30;opacity:0;transition:opacity .35s}
+.shake{animation:sh .4s}
+@keyframes sh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.toast{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:0;right:0;margin:0 auto;width:fit-content;z-index:40;font-family:'Orbitron',sans-serif;font-weight:800;padding:8px 16px;border-radius:12px;background:#02060f;border:1px solid currentColor;animation:rise .3s}
+.bit{position:fixed;top:-30px;z-index:35;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+
+/* Midnight love-letter edition */
+:root{--ink:#f5f1ff;--cy:#93e6ee;--mg:#ff9ac7;--am:#f6d49c}
+body{background:radial-gradient(ellipse at 12% 0,#38234c 0,transparent 50%),radial-gradient(ellipse at 100% 70%,#103b46 0,transparent 55%),#0b101d}
+#bg{background-size:60px 60px;opacity:.4}#bg::after{background:none}
+#app{max-width:1080px;padding:24px;display:grid!important;grid-template-columns:1fr 1.05fr;grid-template-rows:auto auto 1fr auto;gap:18px;height:100dvh}#app[style*="display: none"],#app[style*="display:none"]{visibility:hidden}
+.hd{grid-column:1/-1}.chip{border-radius:99px;font-size:11px;letter-spacing:1px;padding:12px 16px;background:#ffffff07}
+#scene{grid-column:1;grid-row:2/4;height:100%;min-height:300px;background:radial-gradient(ellipse at 50% 70%,#33304e,#101827 70%);border:1px solid #ffffff20;border-radius:28px;box-shadow:inset 0 0 90px #0008,0 18px 70px #0004}
+#scene::before{content:'Ω-7 / RESCUE SIMULATION';position:absolute;bottom:26px;left:22px;letter-spacing:3px;font-size:9px;color:#ffffff60;z-index:4}
+#scene::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#ffffff05 1px,transparent 1px),linear-gradient(#ffffff05 1px,transparent 1px);background-size:40px 40px}
+.press{height:70px;background:linear-gradient(110deg,#718198,#273547);border-bottom:8px solid #141b29;box-shadow:0 20px 40px #0008}.him,.her{font-size:70px;bottom:44px}.fc{bottom:120px}.floor{height:42px;background:linear-gradient(#46506a,#171c2c)}.piston{width:24px;left:47%;height:50px}.door{top:auto;bottom:42px;height:240px;width:150px;margin-left:-75px}.door span{left:50%}.pip{background:#101827}.pips{top:28px}
+#card{grid-column:2;grid-row:2/4;padding:26px;border-radius:28px;gap:16px;background:linear-gradient(145deg,#ffffff0c,#ffffff03);box-shadow:0 20px 70px #0003}.qtext{font-size:20px;line-height:1.55;font-weight:600}.qtext b{color:#fff}.subj{font-size:10px;padding:7px 12px}.lcd{background:#090e19;border-color:#ffffff20;box-shadow:none;color:#a7eff0;font-size:32px;padding:16px}.pad{gap:9px}.pad button{padding:13px}
+button{background:#ffffff08;border:1px solid #ffffff16;border-radius:12px;font-size:16px;transition:transform .15s,background .15s,border-color .15s}button:hover{background:#ffffff14;border-color:#ffffff50;transform:translateY(-2px)}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #93e6ee;outline-offset:3px}button.go{background:linear-gradient(110deg,#f6d49c,#ffabc9);box-shadow:0 8px 25px #ff9ac71b;color:#2a1930;font-size:13px;letter-spacing:1px;padding:18px}.actions button{font-size:12px}#msg{font-size:13px;line-height:1.5}
+#ov{background:#080c16bb;backdrop-filter:blur(18px);overflow:auto}.box{position:relative;width:min(94vw,620px);max-height:94dvh;border-radius:30px;padding:38px;background:radial-gradient(ellipse at 100% 0,#49304688,transparent 65%),linear-gradient(145deg,#1c2535,#111724);border:1px solid #ffffff24;box-shadow:0 30px 130px #0009;gap:20px}.logo{font-family:'Trebuchet MS',sans-serif;font-size:52px;letter-spacing:-2px;line-height:1.05;background:linear-gradient(120deg,#fff7ed,#f4bed6 65%,#b0e4ec);background-clip:text;filter:none}.sub{color:#e6bcce;font-size:10px;letter-spacing:2px;line-height:1.7}.big{font-size:54px}.t{color:#d3cede;font-size:16px;line-height:1.7}.t b{color:#f6d49c}
+.eyebrow{font-size:10px;letter-spacing:3px;color:#c8bdcf}.dedication{font-family:Georgia,serif;font-style:italic;font-size:20px;color:#eed5e0;line-height:1.5}.mission-list{display:flex;gap:8px;width:100%}.mission-list span{flex:1;padding:12px 6px;background:#ffffff05;border:1px solid #ffffff12;border-radius:12px;font-size:11px;line-height:1.8;color:#c9c5d4}.mission-list b{color:#fff;display:block}.mode{width:100%;text-align:left;font-size:12px;color:#c9c5d4}.mode select{width:100%;margin-top:8px;background:#141c2a;color:#f5f1ff;border:1px solid #ffffff25;border-radius:12px;padding:14px;font:inherit}.love-note{border:1px solid #ffabc92a;background:#ffabc908;border-radius:16px;padding:18px;width:100%;text-align:left;color:#efd9e6;font-family:Georgia,serif;line-height:1.7}.love-note small{display:block;font:9px 'Trebuchet MS',sans-serif;letter-spacing:2px;color:#e9b7d0;margin-bottom:8px}.toolbar{grid-column:1/-1;display:flex;align-items:center;gap:10px;flex-wrap:wrap}.toolbar button{padding:10px 14px;font-size:12px}.toolbar .score{margin-right:auto;color:#ddc1d8;font-size:12px}.progress{height:4px;width:100%;background:#ffffff10;border-radius:5px;overflow:hidden}.progress span{display:block;height:100%;background:linear-gradient(90deg,#93e6ee,#ffabc9);transition:width .4s}
+@media(max-width:700px){#app{padding:12px;height:auto;min-height:100dvh;grid-template-columns:1fr;grid-template-rows:auto 200px auto auto;gap:12px}body{overflow:auto}#scene{grid-row:2;min-height:200px}#card{grid-column:1;grid-row:3;overflow:visible;padding:20px}.toolbar{grid-row:4}.hd{gap:4px}.chip{font-size:8px;padding:10px;letter-spacing:.3px}#ringw{transform:scale(.85);width:68px}.box{padding:26px 22px;gap:16px}.logo{font-size:43px}.qtext{font-size:17px}.him,.her{font-size:48px}.fc{bottom:100px}.door{height:150px}.mission-list span{font-size:10px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.bit{display:none}}
+</style>
+</head>
+<body>
+<div id="bg"></div>
+<div class="vig" id="vig"></div>
+<div id="app" style="display:none">
+ <div class="hd"><div class="chip" id="act"></div><div id="ringw"><svg width="78" height="78"><circle cx="39" cy="39" r="34" fill="rgba(0,0,0,.4)" stroke="rgba(255,255,255,.15)" stroke-width="7"/><circle id="rc" cx="39" cy="39" r="34" fill="none" stroke="#19e3a5" stroke-width="7" stroke-linecap="round" stroke-dasharray="213.6" stroke-dashoffset="0"/></svg><div id="rn">0</div></div><div class="chip" id="wr"></div></div>
+ <div id="scene"></div>
+ <div id="card"></div>
+</div>
+<div id="ov" role="dialog" aria-modal="true" aria-label="Game story and controls"></div>
+<script>
+/* ===== EDIT ALL TEXT, QUESTIONS & TIMES HERE ===== */
+const NAME='Baby',HIM='Nikelo';
+const ACTS=[
+ {t:'ACT I',n:'THE CRUSHER',sub:'MATHS & PHYSICS',time:300,col:'#ff4d6d',icon:'🏗️',
+  intro:[`<b>Lab Ω-7 · 02:13 AM.</b> Every door is locked. ${HIM} is trapped under the hydraulic crusher, and it is coming down.`,`<b>GERALD (AI):</b> Good evening, ${NAME}. Each correct answer holds the crusher back. Each wrong answer does not. I am neutral. (I am rooting for you.)`,`<b>${HIM.toUpperCase()}:</b> ${NAME.toUpperCase()}! The ceiling is very close to my head! I’m fine! (I’m not.) You’ve got this!`],
+  out:[`<b>CLUNK.</b> The crusher locks. ${HIM} crawls out, takes one deep breath, and runs to you.`,`<b>${HIM.toUpperCase()}:</b> I knew you could do it. Not once did I doubt you. (Okay, once.)`]},
+ {t:'ACT II',n:'THE LAB',sub:'LIFE SCIENCES & CHEMISTRY',time:330,col:'#19e3a5',icon:'🧪',
+  intro:[`<b>GERALD (AI):</b> Congratulations. The lab is now filling with gas. The exit is sealed behind six biology and chemistry locks. Do try not to breathe.`,`<b>${HIM.toUpperCase()}:</b> I’m right here beside you, ${NAME}. Think like a scientist. Think like YOU.`],
+  out:[`<b>HISSS.</b> The gas vents away and the lab door opens, revealing one last corridor.`,`<b>GERALD (AI):</b> Impressive. Very impressive. I may have been wrong about you. (I was not.)`]},
+ {t:'ACT III',n:'THE FINAL DOOR',sub:'RIDDLES & LOGIC',time:210,col:'#ffc93c',icon:'🚪',
+  intro:[`<b>GERALD (AI):</b> One door remains. It opens only for someone who can think sideways. Five riddles. Five locks.`,`<b>${HIM.toUpperCase()}:</b> I’m holding your hand, ${NAME}. Whatever happens, we do this together.`],
+  out:[]}];
+const END=[`${NAME}… you did it. Every equation. Every reaction. Every riddle.`,`I made this because I think about you so much. I wanted you to have a little world where every door leads back to us.`,`You never have to earn my love with a score. I love your mind, your heart, and all the little things that make you YOU. I’m so lucky I get to be yours. Always. — ${HIM} ❤️`];
+const SC={MATHS:'#35e0ff',PHYSICS:'#ff9e3c',LIFE:'#19e3a5',CHEMISTRY:'#ff4dd8',RIDDLE:'#ffc93c'};
+// type: num (keypad answer) | mc (options, a = index of the correct one) | txt (typed answers list)
+const Q=[
+ {a:0,s:'MATHS',type:'num',ans:25,q:`The crusher’s release code is the sum of the <b>squares</b> of the roots of x² − 7x + 12 = 0.`,hint:`Find the roots first: (x − 3)(x − 4) = 0.`,sol:`Roots are 3 and 4. 3² + 4² = 9 + 16 = <b>25</b>.`},
+ {a:0,s:'PHYSICS',type:'num',ans:30,u:'m/s',q:`A loose steel beam falls from rest through <b>45 m</b> (g = 10 m/s², no air resistance). What is its speed just before impact?`,hint:`v² = u² + 2gh, with u = 0.`,sol:`v² = 2 × 10 × 45 = 900, so v = <b>30 m/s</b>.`},
+ {a:0,s:'MATHS',type:'num',ans:-3,u:'m/s',q:`The crusher’s height is h(t) = t³ − 6t² + 9t + 2. Its velocity is h′(t). What is the <b>minimum</b> value of that velocity?`,hint:`v(t) = 3t² − 12t + 9 is a parabola. Its minimum is at t = −b ÷ 2a.`,sol:`v(t) = 3t² − 12t + 9, minimum at t = 2: v(2) = 12 − 24 + 9 = <b>−3</b>.`},
+ {a:0,s:'PHYSICS',type:'num',ans:37.5,u:'N',q:`Two masses, <b>3 kg</b> and <b>5 kg</b>, hang over a smooth pulley (g = 10 m/s²). What is the <b>tension</b> in the rope?`,hint:`First a = (m₂ − m₁)g ÷ (m₁ + m₂). Then T = m₁(g + a).`,sol:`a = 2×10 ÷ 8 = 2.5 m/s². T = 3(10 + 2.5) = <b>37.5 N</b>.`},
+ {a:0,s:'MATHS',type:'num',ans:4,q:`Solve log₂(x) + log₂(x − 2) = 3. What is <b>x</b>?`,hint:`Combine: log₂[x(x − 2)] = 3, so x(x − 2) = 8. Reject any root that makes a log undefined.`,sol:`x² − 2x − 8 = 0 gives x = 4 or x = −2. x = −2 is rejected, so <b>x = 4</b>.`},
+ {a:0,s:'PHYSICS',type:'num',ans:6,u:'m/s',q:`A <b>3 kg</b> ball moving at <b>10 m/s</b> hits and sticks to a <b>2 kg</b> block at rest. What is their speed after the collision?`,hint:`Momentum is conserved: m₁v₁ = (m₁ + m₂)v.`,sol:`30 = 5v, so v = <b>6 m/s</b>.`},
+ {a:1,s:'LIFE',type:'num',ans:25,u:'%',q:`A parent with blood group A (genotype IᴬI) and a parent with blood group B (genotype IᴮI), both <b>heterozygous</b>, have a child. What is the probability (%) of blood group <b>O</b>?`,hint:`Parents are Iᴬi × Iᴮi. Draw a Punnett square.`,sol:`Offspring: IᴬIᴮ, Iᴬi, Iᴮi, ii. Only ii is group O: 1 in 4 = <b>25%</b>.`},
+ {a:1,s:'CHEMISTRY',type:'num',ans:50,u:'g',q:`CaCO₃ → CaO + CO₂. What mass of CaCO₃ (M = 100 g/mol) must be heated to produce <b>22 g</b> of CO₂ (M = 44 g/mol)?`,hint:`n(CO₂) = m ÷ M. The mole ratio CaCO₃ : CO₂ is 1 : 1.`,sol:`n = 22 ÷ 44 = 0.5 mol. m = 0.5 × 100 = <b>50 g</b>.`},
+ {a:1,s:'LIFE',type:'mc',ans:1,q:`A DNA <b>template</b> strand reads <b>TAC GGA CTT</b>. What is the mRNA transcribed from it?`,opts:[`UAC GGA CUU`,`AUG CCU GAA`,`ATG CCT GAA`,`AUG GGA CUU`],hint:`Pair each base: T→A, A→U, C→G, G→C. RNA has no T.`,sol:`T→A, A→U, C→G gives <b>AUG CCU GAA</b>.`},
+ {a:1,s:'CHEMISTRY',type:'num',ans:12,q:`Find the <b>pH</b> of a 0.005 mol·dm⁻³ Ba(OH)₂ solution (at 25 °C).`,hint:`Each Ba(OH)₂ releases TWO OH⁻. Find pOH first.`,sol:`[OH⁻] = 0.01, so pOH = 2 and pH = 14 − 2 = <b>12</b>.`},
+ {a:1,s:'LIFE',type:'num',ans:92,q:`How many <b>chromatids</b> does a human body cell contain at the end of the S-phase (before mitosis begins)?`,hint:`DNA has been copied. Each of the 46 chromosomes now has two chromatids.`,sol:`46 chromosomes × 2 chromatids = <b>92</b>.`},
+ {a:1,s:'CHEMISTRY',type:'num',ans:3,q:`How many <b>structural isomers</b> does pentane (C₅H₁₂) have, <b>including</b> pentane itself?`,hint:`Straight chain, one methyl branch, two methyl branches.`,sol:`Pentane, 2-methylbutane and 2,2-dimethylpropane: <b>3</b>.`},
+ {a:2,s:'RIDDLE',type:'txt',ans:['map','amap'],q:`I have cities but no houses, mountains but no trees, and water but no fish. What am I?`,hint:`You might fold me up and keep me in a glovebox.`,sol:`<b>A map.</b>`},
+ {a:2,s:'RIDDLE',type:'num',ans:50,u:'cents',q:`A bat and a ball cost <b>R11</b> together. The bat costs <b>R10 more</b> than the ball. How many <b>cents</b> does the ball cost?`,hint:`It’s not 100. Write it: x + (x + 10) = 11.`,sol:`2x + 10 = 11, so x = R0.50 = <b>50 cents</b>.`},
+ {a:2,s:'RIDDLE',type:'num',ans:47,q:`A lily patch doubles in size every day. It covers the whole lake on <b>day 48</b>. On which day was <b>half</b> the lake covered?`,hint:`Doubling means the day before was half.`,sol:`Half the lake, doubled, is the whole lake: <b>day 47</b>.`},
+ {a:2,s:'RIDDLE',type:'txt',ans:['nikelo'],q:`Read the first letter of every word: <b>“Never Insult Kind Eyes, Love Overcomes.”</b> What name does it spell?`,hint:`N… I… K…`,sol:`N-I-K-E-L-O: <b>NIKELO.</b> The man you’re saving.`},
+ {a:2,s:'RIDDLE',type:'txt',ans:['word','yourword','myword','promise','apromise','mypromise'],q:`The last lock. <b>What can you keep after giving it to someone?</b>`,hint:`You do it when you swear to something.`,sol:`<b>Your word.</b> And ${HIM} will keep his: he’s yours.`}];
+const GOOD=[`Correct. Gerald is mildly impressed.`,`Boi, is this you boi?! Smart.`,`Correct. Suspiciously quick.`,`Eish, that was clean.`,`76% average? Show-off.`];
+const ORIGINAL_BAD=[`Incorrect. Gerald is not surprised.`,`Eish. Try again, ${NAME}.`,`Boi, is this you boi?! No.`,`Calculating… no.`,`You are so fake. (Wrong answer.)`];
+const BAD=['Take a breath, Baby. I’m right here.','One more try. You can figure this out.','Even brilliant minds need a second look.','No rush in my heart. Let’s try again.'];
+const NOTES=['I think of you in the little pauses of my day. You make ordinary moments feel special.','I love the way your mind works. Watching you figure things out is one of my favourite things.','You don’t have to get every answer right to make me proud of you.','If I could be anywhere right now, I’d choose beside you.','This whole adventure is just another excuse to tell you: I love you, Baby.','Whatever is on your mind today, you don’t have to carry it alone.','You are my favourite person to come back to. Every single time.','Even when we’re busy, you’re never far from my thoughts.'];
+let mode='adventure',muted=false,streak=0,score=0,boost=false,noteIndex=0;
+const duration=()=>Math.round(A().time*(mode==='cozy'?1.7:mode==='thrill'?.7:1));
+function resetRun(){G.wrong=0;G.hints=0;G.bonus=0;streak=0;score=0;noteIndex=0;}
+/* ===== CODE ===== */
+const $=id=>document.getElementById(id),last={};
+const pick=(a,k)=>{let n;do{n=Math.floor(Math.random()*a.length)}while(a.length>1&&n===last[k]);last[k]=n;return a[n]};
+const vib=n=>{try{navigator.vibrate&&navigator.vibrate(n)}catch(e){}};
+let AC;function ac(){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();AC.state==='suspended'&&AC.resume()}catch(e){}return AC}
+function tone(f,d,ty,v,f2,t0){if(muted)return;const a=ac();if(!a)return;const o=a.createOscillator(),g=a.createGain(),t=a.currentTime+(t0||0);o.type=ty||'sine';o.frequency.setValueAtTime(f,t);if(f2)o.frequency.exponentialRampToValueAtTime(f2,t+d);g.gain.setValueAtTime(v||.15,t);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g);g.connect(a.destination);o.start(t);o.stop(t+d)}
+const chime=()=>[660,880,1320].forEach((f,k)=>tone(f,.25,'triangle',.18,null,k*.09)),buzz=()=>{tone(140,.35,'sawtooth',.18,70)},cheer=()=>[523,659,784,1047,1319].forEach((f,k)=>tone(f,.3,'triangle',.18,null,k*.1)),tick=()=>tone(900,.05,'square',.05);
+const G={act:0,qi:0,left:0,wrong:0,hints:0,run:false,tries:0,hint:false,bonus:0,qs:[]};
+const A=()=>ACTS[G.act],cur=()=>Q[G.qs[G.qi]];
+function toast(t,c){const e=document.createElement('div');e.className='toast';e.style.color=c||'#ffc93c';e.textContent=t;document.body.appendChild(e);setTimeout(()=>e.remove(),1600)}
+function flash(c){const v=$('vig');v.style.background=`radial-gradient(circle,transparent 40%,${c} 130%)`;v.style.opacity=.9;setTimeout(()=>v.style.opacity=0,350)}
+function confetti(n,ch){for(let k=0;k<n;k++)setTimeout(()=>{const s=document.createElement('span'),c=ch||['✨','⭐','💖','🔓','🧪','💡'];s.className='bit';s.textContent=c[Math.floor(Math.random()*c.length)];s.style.left=Math.random()*95+'vw';s.style.fontSize=(16+Math.random()*22)+'px';s.style.animationDuration=(2+Math.random()*2)+'s';document.body.appendChild(s);setTimeout(()=>s.remove(),4200)},k*40)}
+function ov(h,c){$('ov').style.setProperty('--c',c||A().col);$('ov').innerHTML=`<div class="box">${h}</div>`;$('ov').classList.add('on')}
+const ovOff=()=>$('ov').classList.remove('on');
+/* typewriter cutscene */
+function scene(lines,cb,c){let i=0;const next=()=>{if(i>=lines.length){ovOff();return cb()}const L=lines[i++];ov(`<div class="t" id="tx" style="min-height:96px"></div><button class="go" id="nx" style="width:100%">${i<lines.length?'NEXT ▶':'CONTINUE ▶'}</button>`,c);const el=$('tx'),txt=L;let k=0,tag=false,skip=false,buf='';
+  const step=()=>{if(skip||k>=txt.length){el.innerHTML=txt;return}const ch=txt[k++];if(ch==='<')tag=true;buf+=ch;if(ch==='>')tag=false;if(!tag){el.innerHTML=buf;if(ch!==' ')tone(1200+Math.random()*200,.02,'square',.015)}setTimeout(step,tag?0:16)};step();
+  $('nx').onclick=()=>{if(k<txt.length&&!skip){skip=true;el.innerHTML=txt;k=txt.length}else next()}};next()}
+/* title */
+function title(){ov(`<div class="eyebrow">A LITTLE ADVENTURE, MADE WITH LOVE</div><div class="big">💌</div><div class="logo">Baby vs<br>The Crusher<span style="color:#f6d49c">.</span></div><div class="dedication">Seventeen locks. One rescue.<br>And a boy who’s crazy about you.</div><div class="mission-list"><span>01 · THE CRUSHER<b>Save Nikelo</b></span><span>02 · THE LAB<b>Trust your mind</b></span><span>03 · THE DOOR<b>Find our way home</b></span></div><label class="mode">CHOOSE YOUR ADVENTURE<select id="mode"><option value="cozy">Cozy · extra time, gentler penalties</option><option value="adventure" selected>Adventure · a little danger, a lot of heart</option><option value="thrill">Thrill · shorter countdown, bigger challenge</option></select></label><div style="font-size:12px;color:#bdb5c9;line-height:1.6">Correct +6s · Mistake −10s (Cozy −5s) · Hint −12s<br>Build a streak for bonus time. One +30s hand-hold per act.</div><button class="go" id="st" style="width:100%">LET’S SAVE YOUR BOY →</button><div style="font-size:12px;color:#c3aabd">For Baby, with all my love. — Nikelo ♡</div>`,'#ffabc9');$('st').onclick=()=>{mode=$('mode').value;resetRun();ac();ovOff();begin(0)}}
+function begin(i){G.act=i;G.qi=0;G.qs=Q.map((q,k)=>q.a===i?k:-1).filter(k=>k>=0);G.left=duration();boost=false;streak=0;G.run=false;$('app').style.display='flex';$('app').style.setProperty('--c',A().col);build();hud();scene(A().intro,()=>{G.run=true;renderQ()},A().col)}
+/* scenes */
+function build(){const a=G.act,sc=$('scene');$('scene').style.setProperty('--c',A().col);
+ if(a===0)sc.innerHTML=`<div class="piston"></div><div class="press" id="pr"></div><div class="him" id="him">🧍‍♂️</div><div class="fc" id="fc">😰</div><div class="floor"></div>`;
+ if(a===1)sc.innerHTML=`<div class="pips">${G.qs.map(()=>'<div class="pip"></div>').join('')}</div><span class="flask" style="left:8%;top:48px">🧪</span><span class="flask" style="left:26%;top:80px;animation-delay:.6s">⚗️</span><span class="flask" style="right:22%;top:56px;animation-delay:1.2s">🧬</span><div class="him" style="left:30%">🧍‍♂️</div><div class="her" style="right:28%">🧍‍♀️</div><div class="gas" id="gas"></div><div class="floor"></div>`;
+ if(a===2)sc.innerHTML=`<div class="door" id="dr">${G.qs.map((_,k)=>`<span style="top:${14+k*24}px"></span>`).join('')}</div><div class="him" style="left:18%">🧍‍♂️</div><div class="her" style="right:18%">🧍‍♀️</div><div class="floor"></div>`}
+function hud(){const r=Math.min(1,Math.max(0,G.left)/duration());$('rc').style.strokeDashoffset=213.6*(1-r);$('rc').style.stroke=r>.5?'#19e3a5':r>.25?'#ffc93c':'#ff4d6d';$('rn').textContent=Math.ceil(Math.max(0,G.left));$('app').classList.toggle('low',r<.2);
+ $('act').innerHTML=`<b>${A().t}</b> · ${A().n}`;$('wr').innerHTML=`♡ TOGETHER · <b>${score}</b> PTS`;const done=G.qi;
+ if(G.act===0){$('pr').style.transform=`translateY(${(1-r)*70}px)`;$('fc').textContent=r>.5?'😰':r>.2?'😨':'😱'}
+ if(G.act===1){$('gas').style.height=((1-r)*92)+'%';document.querySelectorAll('.pip').forEach((p,k)=>p.classList.toggle('on',k<done))}
+ if(G.act===2){document.querySelectorAll('.door span').forEach((p,k)=>p.classList.toggle('on',k<done))}}
+setInterval(()=>{if(!G.run||document.hidden)return;const was=Math.ceil(G.left);G.left-=.1;if(Math.ceil(G.left)!==was&&G.left<=10&&G.left>0)tick();hud();if(G.left<=0){G.left=0;fail()}},100);
+/* questions */
+let inp='';
+function renderQ(){const q=cur();G.tries=0;G.hint=false;inp='';let body='';
+ if(q.type==='num')body=`<div class="lcd"><span id="ds">0</span><small>${q.u||''}</small></div><div class="pad">${['7','8','9','4','5','6','1','2','3','±','0','.'].map(k=>`<button data-k="${k}">${k}</button>`).join('')}<button data-k="⌫">⌫</button><button class="go wide" data-k="GO">SUBMIT</button></div>`;
+ if(q.type==='txt')body=`<input id="ti" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="TYPE YOUR ANSWER"><button class="go" id="gt">UNLOCK</button>`;
+ if(q.type==='mc'){G.map=q.opts.map((t,i)=>[t,i]).sort(()=>Math.random()-.5);body=G.map.map(([t],j)=>`<button class="opt" data-o="${j}">${t}</button>`).join('')}
+ $('card').style.animation='none';void $('card').offsetWidth;$('card').style.animation='';
+ $('card').innerHTML=`<div class="qhead"><span class="subj" style="--sc:${SC[q.s]}">${q.s==='LIFE'?'LIFE SCIENCES':q.s}</span><span>${G.qi+1} / ${G.qs.length}</span></div><div class="qtext">${q.q}</div>${body}<div class="actions"><button id="hb">💡 Hint −12s</button><button id="sk" style="display:none">⏭ Skip −25s</button></div><div id="msg"></div>`;
+ $('hb').onclick=()=>{if(!G.run)return;if(!G.hint){G.hint=true;G.hints++;G.left-=12;toast('−12s','#ff4d6d')}$('msg').innerHTML='💡 '+q.hint;hud();if(G.left<=0){G.left=0;fail()}};
+ $('sk').onclick=()=>{if(!G.run)return;G.left-=25;if(G.left<=0){G.left=0;hud();return fail()}toast('−25s','#ff4d6d');solved(true)};
+ if(q.type==='num')$('card').querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>key(b.dataset.k));
+ if(q.type==='txt'){const go=()=>check($('ti').value);$('gt').onclick=go;$('ti').onkeydown=e=>{if(e.key==='Enter')go()};$('ti').focus({preventScroll:true})}
+ if(q.type==='mc')$('card').querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>{const idx=G.map[+b.dataset.o][1];if(idx===q.ans)check(idx);else{b.disabled=true;b.style.opacity=.35;check(-1)}})}
+function key(k){if(!G.run)return;tone(500+Math.random()*60,.04,'square',.04);if(k==='GO')return check(inp);if(k==='⌫')inp=inp.slice(0,-1);else if(k==='±')inp=inp[0]==='-'?inp.slice(1):'-'+inp;else if(k==='.'){if(!inp.includes('.'))inp+=(inp===''||inp==='-'?'0':'')+'.'}else if(inp.replace('-','').length<7)inp+=k;$('ds').textContent=inp||'0'}
+function check(v){if(!G.run)return;const q=cur();let ok=false;
+ if(q.type==='num')ok=inp!==''&&Math.abs(parseFloat(inp)-q.ans)<=.011;
+ if(q.type==='txt')ok=q.ans.includes(String(v).toLowerCase().replace(/[^a-z0-9]/g,''));
+ if(q.type==='mc')ok=v===q.ans;
+ if(ok)return solved(false);
+ G.wrong++;G.tries++;streak=0;G.left-=mode==='cozy'?5:10;buzz();vib(120);flash('rgba(255,77,106,.8)');$('app').classList.remove('shake');void $('app').offsetWidth;$('app').classList.add('shake');toast(mode==='cozy'?'−5s · I believe in you':'−10s · Try again, love','#ffabc9');
+ $('msg').textContent=pick(BAD,'b');if(q.type==='num'){inp='';$('ds').textContent='0'}if(q.type==='txt')$('ti').select();if(G.tries>=2)$('sk').style.display='';hud();if(G.left<=0){G.left=0;fail()}}
+function solved(skip){const q=cur();G.run=false;if(skip)streak=0;else{streak=G.tries===0?streak+1:0;score+=100+(G.hint?0:50)+streak*20;if(streak>0&&streak%3===0){G.left+=10;toast('♡ 3 IN A ROW · +10s','#ffabc9')}}if(!skip){G.left+=6;chime();flash('rgba(25,227,165,.7)');confetti(14);toast('+6s','#19e3a5')}
+ G.qi++;hud();ov(`<div class="big">${skip?'⏭':'✅'}</div><div class="logo" style="font-size:22px">${skip?'SKIPPED':'ACCESS GRANTED'}</div><div class="t"><span class="sub">${pick(GOOD,'g')}</span><br><br>${q.sol}</div><div class="love-note"><small>A LITTLE NOTE FROM NIKELO · ${noteIndex+1}</small>${NOTES[noteIndex++%NOTES.length]}</div><button class="go" id="nx" style="width:100%">${G.qi>=G.qs.length?'FINISH ACT ▶':'NEXT QUESTION ▶'}</button>`);
+ $('nx').onclick=()=>{ovOff();if(G.qi>=G.qs.length)finishAct();else{G.run=true;renderQ()}}}
+function finishAct(){G.run=false;cheer();confetti(40);const bonus=Math.round(G.left);G.bonus+=bonus;
+ if(G.act<2){const i=G.act;scene(ACTS[i].out,()=>begin(i+1),ACTS[i].col)}else scene(['<b>CLICK.</b> The final lock turns. The door swings open… and there’s the night sky.'],ending,'#ffc93c')}
+function fail(){G.run=false;buzz();flash('rgba(255,77,106,.9)');const a=A();
+ ov(`<div class="big">⏰</div><div class="logo" style="font-size:24px">TIME’S UP</div><div class="t">${G.act===0?`The crusher reached the floor… but don’t worry: <b>this is only a simulation</b>. ${HIM} is in the break room eating pizza.`:G.act===1?`The gas got a little too cosy. Don’t worry: <b>it’s a simulation</b>, and Gerald has a fan.`:`The final door sealed. But it’s only a simulation, and Gerald says you were very close.`}</div><button class="go" id="rt" style="width:100%">TRY THIS ACT AGAIN 🔁</button>`);$('rt').onclick=()=>{ovOff();G.qi=0;G.left=duration();streak=0;boost=false;G.run=true;build();hud();renderQ()}}
+function ending(){const w=G.wrong,h=G.hints,grade=w<=2&&h<=2?'S':w<=5&&h<=4?'A':w<=9?'B':'C';confetti(100,['💖','✨','🎉','🧠','⭐']);cheer();
+ ov(`<div class="big">🫂</div><div class="logo" style="font-size:26px">YOU SAVED HIM</div><div class="sub">RESCUE GRADE</div><div class="logo" style="font-size:64px">${grade}</div><div class="t" style="text-align:center">Wrong answers: <b>${w}</b> · Hints: <b>${h}</b><br>Seconds to spare: <b>${G.bonus}</b><br>Love-powered score: <b>${score}</b> · ${mode} mode</div>${END.map(l=>`<div class="t" style="font-size:17px">${l}</div>`).join('')}<button class="go" id="ag" style="width:100%">PLAY AGAIN 🔁</button>`,'#ff4dd8');$('ag').onclick=()=>{resetRun();ovOff();title()}}
+// Controls remain outside question cards so they survive every lock.
+const toolbar=document.createElement('div');toolbar.className='toolbar';toolbar.innerHTML='<div class="progress"><span id="progress"></span></div><span class="score" id="streak">Made for you ♡</span><button id="hold">♡ Hold my hand +30s</button><button id="pause">Ⅱ Pause</button><button id="sound" aria-pressed="false">♫ Sound on</button>';$('app').appendChild(toolbar);
+$('hold').onclick=()=>{if(!G.run||boost)return;boost=true;G.left+=30;chime();toast('I’m here, Baby. Always. +30 seconds','#ffabc9');hud()};
+$('sound').onclick=()=>{muted=!muted;$('sound').textContent=muted?'♫ Sound off':'♫ Sound on';$('sound').setAttribute('aria-pressed',String(muted))};
+$('pause').onclick=()=>{if(!G.run)return;G.run=false;ov('<div class="big">♡</div><div class="logo" style="font-size:32px">Take a little breath.</div><div class="dedication">There’s always time for you.</div><button class="go" id="resume">BACK TO OUR ADVENTURE →</button>');$('resume').onclick=()=>{ovOff();G.run=true}};
+const baseHud=hud;hud=function(){baseHud();$('streak').textContent=streak>1?'🔥 '+streak+' answer streak · '+score+' pts':'Made for you ♡ · '+score+' pts';$('progress').style.width=((G.qs[0]+G.qi)/Q.length*100)+'%';$('hold').disabled=boost;$('hold').textContent=boost?'♡ I’m right beside you':'♡ Hold my hand +30s'};
+document.addEventListener('keydown',e=>{if(!G.run||$('ov').classList.contains('on')||cur().type!=='num'||e.ctrlKey||e.metaKey||e.altKey)return;if(/^[0-9.]$/.test(e.key)){e.preventDefault();key(e.key)}else if(e.key==='Enter'){e.preventDefault();key('GO')}else if(e.key==='Backspace'){e.preventDefault();key('⌫')}else if(e.key==='-'){e.preventDefault();key('±')}});
+title();
+</script>
+</body>
+</html>
