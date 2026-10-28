@@ -23,3 +23,5 @@ Repository: https://github.com/Nikelomoyo/Portfolio. Enable GitHub Pages in repo
 
 
 StudyIntell project description reviewed against its repository commit 9023dc2 on 29 October 2026. Repository source availability is separate from verification of the live release; the displayed screenshot remains a local preview.
+
+StudyIntell image refreshed with a public website capture on 29 October 2026. The banner scrolls continuously on desktop, supports pause, and displays all four phrases in a static mobile grid or reduced-motion layout.
