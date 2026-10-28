@@ -21,3 +21,5 @@ Screenshots contain sample/demo data. The receipt is a CSS concept illustration,
 
 Repository: https://github.com/Nikelomoyo/Portfolio. Enable GitHub Pages in repository settings to publish the uploaded HTML site. No environment files, databases or credentials are needed to host it.
 
+
+StudyIntell project description reviewed against its repository commit 9023dc2 on 29 October 2026. Repository source availability is separate from verification of the live release; the displayed screenshot remains a local preview.
